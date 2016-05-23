@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:htext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:htext="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
+  >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextSwitcher
+        android:visibility="gone"
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
@@ -14,15 +18,16 @@
     <org.chzz.textview.CHZZTextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:minHeight="200dp"
+        android:background="#000"
         android:clickable="true"
         android:gravity="center"
         android:onClick="onClick"
-        htext:animateType="scale"
         android:text="What is design?"
-        android:background="#000"
         android:textColor="#fff"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        htext:animateType="scale"/>
 
     <SeekBar
         android:id="@+id/seekbar"
@@ -35,7 +40,7 @@
         android:id="@+id/typeGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" >
+        android:layout_marginTop="10dp">
 
         <RadioButton
             android:id="@+id/scale"
@@ -79,11 +84,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Line"/>
+
         <RadioButton
             android:id="@+id/typer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Typer"/>
+
         <RadioButton
             android:id="@+id/rainbow"
             android:layout_width="wrap_content"
@@ -91,4 +98,15 @@
             android:text="Rainbow"/>
     </RadioGroup>
 
+    <Button
+        android:id="@+id/but_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置字体色"/>
+    <Button
+        android:id="@+id/but_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置背景色"/>
 </LinearLayout>
+</ScrollView>
