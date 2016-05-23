@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements ViewSwitcher.View
         mSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mHandler.removeMessages(0);
                 Intent color = new Intent(MainActivity.this, ColorActivity.class);
                 color.putExtra("colors", mTextView.getCurrentTextColor());
                 startActivityForResult(color, 100);
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements ViewSwitcher.View
         mBg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mHandler.removeMessages(0);
                 Intent color = new Intent(MainActivity.this, ColorActivity.class);
                 color.putExtra("colors", mTextView.getDrawingCacheBackgroundColor());
                 startActivityForResult(color, 101);
@@ -197,7 +199,8 @@ public class MainActivity extends AppCompatActivity implements ViewSwitcher.View
             mTextView.setTextColor(color);
             mTextView.setAnimateType(mType);
             updateCounter();
-            mHandler.sendEmptyMessageDelayed(0, 2000);
+
+
         }
         if (requestCode == 101 && null != data) {
             int color = data.getIntExtra("color", -1);
@@ -205,5 +208,6 @@ public class MainActivity extends AppCompatActivity implements ViewSwitcher.View
             mTextView.setAnimateType(mType);
             updateCounter();
         }
+        mHandler.sendEmptyMessageDelayed(0, 2000);
     }
 }
